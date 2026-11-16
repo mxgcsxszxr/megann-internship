@@ -8,22 +8,21 @@ import Skeleton from "../UI/Skeleton";
 import CountdownTimer from "../UI/Counotdown";
 
 const NewItems = () => {
-    const [data, setData] = useState([])
-    
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems")
-          setData(response.data)
-          console.log(response.data)
-        } catch (error) {
-          console.error("Error fetching new items data:", error);
-        }
+  const [data, setData] = useState([])
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems")
+        setData(response.data)
+      } catch (error) {
+        console.error("Error fetching new items data:", error);
       }
-      fetchData()
-    }, [])
+    }
+    fetchData()
+  }, [])
 
-      const responsiveSettings = {
+  const responsiveSettings = {
     0: {
       items: 1,
     },
